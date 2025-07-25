@@ -29,3 +29,4 @@ replay_pid*
 # 직접입력
 .gradle/
 build/
+work-feature/
