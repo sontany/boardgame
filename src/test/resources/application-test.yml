@@ -1,0 +1,30 @@
+spring:
+  # 테스트용 데이터베이스 설정 (H2 인메모리)
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: password
+  
+  # JPA 테스트 설정
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# H2 콘솔 설정 (테스트 중 확인용)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+# 로깅 설정
+logging:
+  level:
+    root: INFO
+    com.boardgame: DEBUG
+    org.hibernate.SQL: DEBUG
