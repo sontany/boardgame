@@ -11,7 +11,7 @@ src/main/kotlin/com/boardgame/
 ├── controller/     # API 요청을 받는 Web 계층
 ├── application/    # 서비스 계층 (비즈니스 흐름)
 ├── infra/          # 외부 구현체 (DB, API 등)
-│   ├── entity/ # JPA 엔티티
+│   ├── entity/     # JPA 엔티티
 │   └── repository/ # Spring Data JPA 저장소
 └── config/         # 설정 클래스 (Swagger, DB 등)
 ```
