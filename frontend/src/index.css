@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background: linear-gradient(to bottom right, #dbeafe, #e0e7ff);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .dice {
+    @apply w-16 h-16 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center text-2xl font-bold shadow-lg cursor-pointer transition-all duration-200 hover:shadow-xl;
+  }
+  
+  .dice.selected {
+    @apply border-blue-500 bg-blue-50;
+  }
+  
+  .dice.rolling {
+    @apply animate-spin;
+  }
+  
+  .score-category {
+    @apply p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors;
+  }
+  
+  .score-category.available {
+    @apply hover:bg-blue-50 hover:border-blue-300;
+  }
+  
+  .score-category.filled {
+    @apply bg-gray-100 cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .game-card {
+    @apply bg-white rounded-xl shadow-lg p-6 border border-gray-200;
+  }
+}
