@@ -101,3 +101,32 @@ tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar
 tasks.test {
     useJUnitPlatform() // JUnit 5 사용
 }
+
+// 프론트엔드 빌드 태스크
+tasks.register<Exec>("buildFrontend") {
+    group = "build"
+    description = "Build React frontend"
+    workingDir = file("frontend")
+    
+    // OS에 따른 명령어 설정
+    if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+        commandLine("cmd", "/c", "npm", "run", "build")
+    } else {
+        commandLine("npm", "run", "build")
+    }
+}
+
+// 프론트엔드 빌드 파일을 static 폴더로 복사
+tasks.register<Copy>("copyFrontendBuild") {
+    group = "build"
+    description = "Copy frontend build to static resources"
+    dependsOn("buildFrontend")
+    
+    from("frontend/dist")
+    into("src/main/resources/static")
+}
+
+// processResources 태스크가 copyFrontendBuild에 의존하도록 설정
+tasks.named("processResources") {
+    dependsOn("copyFrontendBuild")
+}

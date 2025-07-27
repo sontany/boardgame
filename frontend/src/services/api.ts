@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// API 기본 설정
-const API_BASE_URL = 'http://localhost:8080';
+// API 기본 설정 - 상대 경로 사용 (같은 서버에서 서빙)
+const API_BASE_URL = '';
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
