@@ -26,7 +26,7 @@ class SwaggerConfig {
         return OpenAPI()
             .info(apiInfo())
             .servers(listOf(
-                Server().url("/api").description("Default Server URL")
+                Server().url("http://localhost:8080").description("Local Development Server")
             ))
     }
 
@@ -37,13 +37,13 @@ class SwaggerConfig {
      */
     private fun apiInfo(): Info {
         return Info()
-            .title("Boardgame API")
-            .description("Boardgame 애플리케이션을 위한 API 문서")
+            .title("Yacht Dice Game API")
+            .description("요트다이스 보드게임 API 문서")
             .version("v1.0.0")
             .contact(
                 Contact()
-                    .name("API Support")
-                    .email("support@example.com")
+                    .name("Boardgame API Support")
+                    .email("support@boardgame.com")
             )
             .license(
                 License()
